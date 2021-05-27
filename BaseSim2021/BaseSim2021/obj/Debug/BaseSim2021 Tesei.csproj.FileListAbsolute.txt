@@ -1,0 +1,11 @@
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\bin\Debug\BaseSim2021.exe.config
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\bin\Debug\BaseSim2021.exe
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\bin\Debug\BaseSim2021.pdb
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\obj\Debug\BaseSim2021 Tesei.csprojAssemblyReference.cache
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\obj\Debug\BaseSim2021.DifficultyView.resources
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\obj\Debug\BaseSim2021.GameView.resources
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\obj\Debug\BaseSim2021.Properties.Resources.resources
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\obj\Debug\BaseSim2021 Tesei.csproj.GenerateResource.cache
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\obj\Debug\BaseSim2021 Tesei.csproj.CoreCompileInputs.cache
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\obj\Debug\BaseSim2021.exe
+\\iut.bx1\Etudiants\Home\rtesei\Documents\IHM\BaseSim2021\obj\Debug\BaseSim2021.pdb
