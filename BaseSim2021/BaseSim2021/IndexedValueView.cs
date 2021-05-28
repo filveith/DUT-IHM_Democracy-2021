@@ -45,34 +45,20 @@ namespace BaseSim2021
             //stringFormat.LineAlignment = StringAlignment.Center;
 
             g.DrawRectangle(p, r);
+            g.FillRectangle(new SolidBrush(Color.FromName("White")), r);
 
             g.DrawString(Value.Type.ToString(), new Font("Times New Roman", 10, FontStyle.Bold), Brushes.Black, r, stringFormat);
 
-            //g.DrawString(Value.Name, new Font("Times New Roman", 8, FontStyle.Bold), Brushes.Black, r, stringFormat);
+            g.DrawString(Value.Name, new Font("Times New Roman", 8, FontStyle.Bold), Brushes.Black, new Point(this.Position.X + 25, this.Position.Y + 11), stringFormat);
 
-            //g.DrawString(Value.Value.ToString(), new Font("Times New Roman", 7, FontStyle.Bold), Brushes.Black, r, stringFormat);
+            g.DrawString(Value.MinValue.ToString() + "   " + Value.Value.ToString() + "   " + Value.MaxValue.ToString(), new Font("Times New Roman", 6, FontStyle.Bold), Brushes.Black, new Point(this.Position.X + 25, this.Position.Y + 26), stringFormat);
 
-            //g.DrawString(Value.MinValue.ToString(), new Font("Times New Roman", 6, FontStyle.Bold), Brushes.Black, r, stringFormat);
-
-            //g.DrawString(Value.MaxValue.ToString(), new Font("Times New Roman", 6, FontStyle.Bold), Brushes.Black, r, stringFormat);
-
-            //e.Graphics.DrawString(text1, font1, Brushes.Blue, rect1, stringFormat);
-
-            //g.DrawString(Value.Type.ToString(), new Font("Times New Roman", 10, FontStyle.Bold), Brushes.Black, this.Position);
-
-            g.DrawString(Value.Name, new Font("Times New Roman", 8, FontStyle.Bold), Brushes.Black, new Point(this.Position.X, this.Position.Y+11));
-
-            g.DrawString(Value.Value.ToString(), new Font("Times New Roman", 7, FontStyle.Bold), Brushes.Black, new Point(this.Position.X+20, this.Position.Y + 20));
-
-            g.DrawString(Value.MinValue.ToString(), new Font("Times New Roman", 6, FontStyle.Bold), Brushes.Black, new Point(this.Position.X, this.Position.Y + 20));
-
-            g.DrawString(Value.MaxValue.ToString(), new Font("Times New Roman", 6, FontStyle.Bold), Brushes.Black, new Point(this.Position.X+40, this.Position.Y + 20));
 
         }
 
         public bool Contient(Point p)
         {
-            Rectangle r = new Rectangle(new Point(Position.X - Taille.Width / 2, Position.Y - Taille.Height / 2), Taille);
+            Rectangle r = new Rectangle(Position, Taille);
             return r.Contains(p);
         }
 
@@ -82,6 +68,7 @@ namespace BaseSim2021
             int y = p.Y;
             return new Point(x, y);
         }
+
         public void DessineSouris(Graphics g, Point posM)
         {
             g.DrawLine(Pens.Blue, Position, posM);

@@ -20,3 +20,5 @@ C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim20
 C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021 FilVeith.csproj.CoreCompileInputs.cache
 C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.exe
 C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.pdb
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.ChangePolitics.resources
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.Description.resources

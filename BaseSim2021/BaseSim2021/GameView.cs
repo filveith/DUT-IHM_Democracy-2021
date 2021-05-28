@@ -68,15 +68,19 @@ namespace BaseSim2021
         }
         #endregion
 
-        private void printValues(PaintEventArgs e, List<IndexedValue> values, int x, int y, Size recSize, Color color)
+        List<IndexedValueView> views = new List<IndexedValueView>();
+
+        private void printValues(PaintEventArgs e, List<IndexedValue> values, int x, int y, Size recSize, Color color, Color contourColor)
         {
+           
+            //Console.WriteLine(color + "    x = " + x + "   y = " + y + "   recW = " + recSize.Width);
+
             int margin = 25;
 
             recSize = new Size(recSize.Width - margin*3, recSize.Height);
 
             int nbValue = values.Count();
-            int baseX = x+margin;
-            int baseY = y;
+            
             int increment = 0;
             int width = 50;
             int height = 50;
@@ -86,32 +90,43 @@ namespace BaseSim2021
             int nbInRow = recSize.Width / width;
             int reste = recSize.Width - nbValue * width;
             int espacementX = reste / (nbValue + 1);
-            Pen pen = new Pen(color, 2);
-            List<IndexedValueView> views = new List<IndexedValueView>();
-
+            Pen pen = new Pen(contourColor, 4);
             
-            e.Graphics.DrawRectangle(pen, new Rectangle(new Point(x+margin, y+margin), recSize));
+
+            int baseX = x + espacementX;
+            int baseY = y;
+
+            int maxRecPos = recSize.Width + x;
+
+            //e.Graphics.DrawRectangle(pen, new Rectangle(new Point(x+margin, y+margin), recSize));
+            e.Graphics.FillRectangle(new SolidBrush(color), new Rectangle(new Point(x + margin, y + margin), recSize));
+            e.Graphics.DrawRectangle(pen, new Rectangle(new Point(x + margin, y + margin), recSize));
+
+            int xInRec = 0;
 
             y = baseY;
             x = baseX;
 
+
+            //Console.WriteLine("BEFORE    x = " + x + "   y = " + y + "   recMaxPos = " + maxRecPos);
+
             foreach (IndexedValue v in values)
             {
-                if (x + width + 5 >= recSize.Width)
+                if (xInRec + width * 2 + 5 >= recSize.Width || x + width * 2 + 5 >= maxRecPos)
                 {
-                    Console.WriteLine(color+"    To width = " + (x + width + 5) + "   over = " + recSize.Width);
+                    //Console.WriteLine(color+"    To width = " + (x + width + 5) + "   over = " + recSize.Width + "    xInRec = " + xInRec);
                     y += width + 5;
                     increment = 0;
                     x = baseX;
+                    xInRec = 0;
                 }
-
-                
 
                 increment++;
                 x += espacementX + width;
-                Console.WriteLine("x = " + x + "    y = " + y);
+                xInRec += espacementX + width;
+                Console.WriteLine("x = " + x + "    y = " + y + "    xInRec = " + xInRec);
                 //views.Add(new IndexedValueView(v, x, y + recSize.Height / 2 - height / 2, width, height, color));
-                views.Add(new IndexedValueView(v, x, y + width - 15, width, height, color));
+                views.Add(new IndexedValueView(v, x, y + width - 15, width, height, contourColor));
                 x += width;
             }
             views.ForEach(view => view.Draw(e.Graphics));
@@ -119,13 +134,16 @@ namespace BaseSim2021
 
         private void getAllValues(PaintEventArgs e)
         {
-            printValues(e, theWorld.Policies, 0, 0, new Size(Width, Height / 3), Color.FromName("Blue"));
+            views.Clear();
+            printValues(e, theWorld.Policies, 0, 0, new Size(Width, Height / 3 - 25), Color.FromArgb(90,112,219), Color.FromArgb(64,79,156));
 
-            printValues(e, theWorld.Crises, 0, 25 + Height - (Height / 3) * 2, new Size(Width / 2, Height - (Height / 3)*2), Color.FromName("Red"));
-            printValues(e, theWorld.Indicators, Width/2, 25 + Height - (Height / 3) * 2, new Size(Width / 2, Height - (Height / 3) * 2), Color.FromName("Green"));
+            printValues(e, theWorld.Perks, 0, Height - (Height / 3) * 2, new Size(Width / 2, Height - (Height / 3)*2), Color.FromArgb(247, 55, 45), Color.FromArgb(184,41,33));
+
+            printValues(e, theWorld.Indicators, Width/2, Height - (Height / 3) * 2 , new Size(Width / 2, Height - (Height / 3) * 2), Color.FromArgb(54,128,55), Color.FromArgb(39,112,53));
             
-            printValues(e, theWorld.Groups, 0, 25 + Height - (Height / 3), new Size(Width / 2, -100 + Height - (Height / 3) * 2), Color.FromName("Pink"));
-            printValues(e, theWorld.Perks, Width / 2, 25 + Height - (Height / 3), new Size(Width / 2, -100 + Height - (Height / 3) * 2), Color.FromName("Orange"));
+            printValues(e, theWorld.Groups, 0, 25 +Height - (Height / 3), new Size(Width / 2, -100 + Height - (Height / 3) * 2), Color.FromName("Pink"), Color.FromName("HotPink"));
+
+            printValues(e, theWorld.Crises, Width / 2, 25 + Height - (Height / 3), new Size(Width / 2, -100 + Height - (Height / 3) * 2), Color.FromArgb(230,157,31), Color.FromArgb(184,125,24));
         }
 
         private void NextButton_Click(object sender, EventArgs e)
@@ -133,5 +151,39 @@ namespace BaseSim2021
             GameController.Interpret("suivant");
         }
 
+        private void GameView_MouseDown(object sender, MouseEventArgs e)
+        {
+            IndexedValueView selection = Selection(e.Location);
+
+            Console.WriteLine(selection.Value.Type);
+
+            if (e.Button == MouseButtons.Left && selection != null)
+            {
+                
+                if (selection.Value.Type.ToString().Equals("Policy"))
+                {
+                    
+                    ChangePolitics changePolitics = new ChangePolitics(selection.Value.Value);
+
+                    if (changePolitics.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        String changes = selection.Value.Name + " " + changePolitics.valNumeric;
+                        GameController.ApplyPolicyChanges(changes); //changes the value of the selected policy
+                    }
+                } else
+                {
+                    MessageBox.Show(selection.Value.Description, "Message", MessageBoxButtons.OK);
+                }
+                
+            }
+        }
+        private IndexedValueView Selection(Point p)
+        {
+            /*foreach(IndexedValueView c in views)
+            {
+                if (c != null) Console.WriteLine("x = "+c.Position.X + "   y = " + c.Position.Y + "   val = " + c.Value.Name);
+            }*/
+            return views.FirstOrDefault(c => c.Contient(p));
+        }
     }
 }

@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePolitics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePolitics.Designer.cs">
+      <DependentUpon>ChangePolitics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Description.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Description.Designer.cs">
+      <DependentUpon>Description.cs</DependentUpon>
+    </Compile>
     <Compile Include="DifficultyView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +78,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorldState.cs" />
+    <EmbeddedResource Include="ChangePolitics.resx">
+      <DependentUpon>ChangePolitics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Description.resx">
+      <DependentUpon>Description.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DifficultyView.resx">
       <DependentUpon>DifficultyView.cs</DependentUpon>
     </EmbeddedResource>

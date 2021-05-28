@@ -119,7 +119,7 @@ namespace BaseSim2021
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(962, 431);
+            this.ClientSize = new System.Drawing.Size(984, 631);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.gloryLabel);
             this.Controls.Add(this.moneyLabel);
@@ -129,9 +129,11 @@ namespace BaseSim2021
             this.Controls.Add(this.inputTextBox);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1000, 670);
             this.Name = "GameView";
             this.Text = "Fenêtre Principale";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameView_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GameView_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
