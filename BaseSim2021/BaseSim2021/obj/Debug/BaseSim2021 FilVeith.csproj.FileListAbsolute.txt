@@ -9,3 +9,14 @@ C:\Users\Fil\OneDrive\CoursIut\IHM\Projet IHM\BaseSim2021\BaseSim2021\obj\Debug\
 C:\Users\Fil\OneDrive\CoursIut\IHM\Projet IHM\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021 FilVeith.csproj.CoreCompileInputs.cache
 C:\Users\Fil\OneDrive\CoursIut\IHM\Projet IHM\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.exe
 C:\Users\Fil\OneDrive\CoursIut\IHM\Projet IHM\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.pdb
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\bin\Debug\BaseSim2021.exe.config
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\bin\Debug\BaseSim2021.exe
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\bin\Debug\BaseSim2021.pdb
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021 FilVeith.csprojAssemblyReference.cache
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.DifficultyView.resources
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.GameView.resources
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.Properties.Resources.resources
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021 FilVeith.csproj.GenerateResource.cache
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021 FilVeith.csproj.CoreCompileInputs.cache
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.exe
+C:\Users\fveith\source\repos\ihm_jeu\BaseSim2021\BaseSim2021\obj\Debug\BaseSim2021.pdb

@@ -40,9 +40,25 @@ namespace BaseSim2021
             
             Rectangle r = new Rectangle(this.Position, Taille);
 
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            //stringFormat.LineAlignment = StringAlignment.Center;
+
             g.DrawRectangle(p, r);
 
-            g.DrawString(Value.Type.ToString(), new Font("Times New Roman", 10, FontStyle.Bold), Brushes.Black, this.Position);
+            g.DrawString(Value.Type.ToString(), new Font("Times New Roman", 10, FontStyle.Bold), Brushes.Black, r, stringFormat);
+
+            //g.DrawString(Value.Name, new Font("Times New Roman", 8, FontStyle.Bold), Brushes.Black, r, stringFormat);
+
+            //g.DrawString(Value.Value.ToString(), new Font("Times New Roman", 7, FontStyle.Bold), Brushes.Black, r, stringFormat);
+
+            //g.DrawString(Value.MinValue.ToString(), new Font("Times New Roman", 6, FontStyle.Bold), Brushes.Black, r, stringFormat);
+
+            //g.DrawString(Value.MaxValue.ToString(), new Font("Times New Roman", 6, FontStyle.Bold), Brushes.Black, r, stringFormat);
+
+            //e.Graphics.DrawString(text1, font1, Brushes.Blue, rect1, stringFormat);
+
+            //g.DrawString(Value.Type.ToString(), new Font("Times New Roman", 10, FontStyle.Bold), Brushes.Black, this.Position);
 
             g.DrawString(Value.Name, new Font("Times New Roman", 8, FontStyle.Bold), Brushes.Black, new Point(this.Position.X, this.Position.Y+11));
 
